@@ -226,7 +226,7 @@ function showGameOver() {
     } else {
           localStorage.setItem('loose', JSON.stringify(1));
     }
-    looseInfo.innerText = loose;
+    // looseInfo.innerText = loose;
    
 }
 
@@ -361,7 +361,7 @@ if (document.documentElement.clientWidth < 768) {
             tetromino.matrix = matrix;
             }
         }
-        if (e.touches[0].clientX < document.documentElement.clientWidth/2) {
+    else if (e.touches[0].clientX < document.documentElement.clientWidth/2) {
             console.log(e.touches[0].clientX)
                 const col = tetromino.col - 1;
         if (isValidMove(tetromino.matrix, tetromino.row, col)) {
@@ -370,7 +370,7 @@ if (document.documentElement.clientWidth < 768) {
             
         }
 
-         if (e.touches[0].clientX > document.documentElement.clientWidth/2) {
+      else   if (e.touches[0].clientX > document.documentElement.clientWidth/2) {
             console.log(e.touches[0].clientX)
                 const col = tetromino.col + 1;
         if (isValidMove(tetromino.matrix, tetromino.row, col)) {
