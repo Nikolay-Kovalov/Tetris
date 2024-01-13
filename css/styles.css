@@ -16,7 +16,7 @@ body {
 .button {
 
     width: 100px;
-    height: 36px;
+    height: 40px;
     border: none;
     border-radius: 8px;
     background-color: rgb(208, 2, 201);
@@ -37,41 +37,128 @@ body {
 
 #start {
     position: absolute;
-
-    /* left: ; */
-    bottom: 0;
+    width: 80px;
+    height: 30px;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(208, 2, 201);
+    color: white;
+    font-size: 14px;
+    left: 10vw;
+    bottom: 10px;
 }
 
 #stop {
     position: absolute;
-
-    left: 110px;
-    bottom: 0;
+    width: 80px;
+    height: 30px;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(208, 2, 201);
+    color: white;
+    font-size: 14px;
+    left: 40vw;
+    bottom: 10px;
 }
 
 #reload {
     position: absolute;
-
-    left: 220px;
-    bottom: 0;
+    width: 80px;
+    height: 30px;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(208, 2, 201);
+    color: white;
+    font-size: 14px;
+    left: 70vw;
+    bottom: 10px;
 }
 
 .buttons-wrapper {
+    margin-top: 8px;
     display: flex;
     gap: 80px;
 }
 
 canvas {
-    border: 1px solid white;
-    box-shadow: 2px 2px 10px white;
-    border-radius: 12px;
-    width: 98vw;
-    height: 80vh;
+    border-bottom: 1px solid white;
+    box-shadow: 0px 0px 10px white;
+    /* border-radius: 12px; */
+    /* width: 94vw;
+    height: 74vh; */
+    width: 340px;
+    height: 540px;
 }
 
 .disabled {
     pointer-events: none;
     opacity: 0.5;
+}
+
+@media screen and (min-width: 390px) {
+    .button {
+
+        width: 100px;
+        height: 36px;
+        border: none;
+        border-radius: 8px;
+        background-color: rgb(208, 2, 201);
+        color: white;
+        font-size: 12px;
+        transition: all 0.4s ease;
+    }
+
+    /* 
+.buttons-wrapper,
+.reload-wrapper {
+
+    position: absolute;
+    top: 20px;
+    left: 100px;
+
+} */
+
+    #start {
+        position: absolute;
+
+        left: 10vw;
+        bottom: 10px;
+    }
+
+    #stop {
+        position: absolute;
+
+        left: 45vw;
+        bottom: 10px;
+    }
+
+    #reload {
+        position: absolute;
+
+        left: 80vw;
+        bottom: 10px;
+    }
+
+    .buttons-wrapper {
+        display: flex;
+        gap: 80px;
+    }
+
+    canvas {
+        border-bottom: 1px solid white;
+        box-shadow: 2px 2px 10px white;
+        border-radius: 12px;
+        width: 320px;
+        height: 74vh;
+    }
+
+    .disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
 }
 
 
@@ -93,6 +180,8 @@ canvas {
         border: 1px solid white;
         box-shadow: 2px 2px 10px white;
         border-radius: 12px;
+        width: 320px;
+        height: 640px;
     }
 
     .disabled {
