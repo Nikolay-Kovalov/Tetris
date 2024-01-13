@@ -351,12 +351,41 @@ document.addEventListener('keydown', function(e) {
     }
 })  
 
+let clientWidth = 0;
+
+
 if (document.documentElement.clientWidth < 768) {
     document.addEventListener('touchstart', function (e) {
-      const matrix = rotate(tetromino.matrix);
+        if(e.touches.length === 2){ const matrix = rotate(tetromino.matrix);
         if (isValidMove(matrix, tetromino.row, tetromino.col)) {
             tetromino.matrix = matrix;
+        }}
+     
+    })
+
+    document.addEventListener('touchmove', function (evt) {
+        console.log(evt.targetTouches[0] )
+clientWidth = evt.targetTouches[0].clientX 
+     console.log(clientWidth)
+        setTimeout(() => {
+          if (clientWidth >= evt.targetTouches[0].clientX) {
+             const col =  tetromino.col + 1;
+            if (isValidMove(tetromino.matrix, tetromino.row, col)) {
+                tetromino.col = col;
+            }
+           
         }
+         if (clientWidth  < evt.targetTouches[0].clientX) 
+            {
+                const col = tetromino.col - 1;
+                if (isValidMove(tetromino.matrix, tetromino.row, col)) {
+                    tetromino.col = col;
+                }
+            }
+    },100)
+      
+        
+      
     })
 }
     
