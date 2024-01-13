@@ -351,103 +351,103 @@ document.addEventListener('keydown', function(e) {
     }
 })  
 
-let clientWidth = 0;
 
-let xDown = null;                                                        
-let yDown = null;
+// let xDown = null;                                                        
+// let yDown = null;
 
-function getTouches(evt) {
-  return evt.touches ||             // browser API
-         evt.originalEvent.touches; // jQuery
-} 
+// function getTouches(evt) {
+//   return evt.touches ||             // browser API
+//          evt.originalEvent.touches; // jQuery
+// } 
 
 
 if (document.documentElement.clientWidth < 768) {
     document.addEventListener('touchstart', function (e) {
 
-    const firstTouch = getTouches(e)[0];                                      
-    xDown = firstTouch.clientX;                                      
-    yDown = firstTouch.clientY; 
-        console.log(yDown)
-              console.log(xDown)
-    //     if (e.touches.length === 2 && e.target === canvas) {
-    //         const matrix = rotate(tetromino.matrix);
-    //     if (isValidMove(matrix, tetromino.row, tetromino.col)) {
-    //         tetromino.matrix = matrix;
-    //         }
-    //     }
-    // else if (e.touches[0].clientX < document.documentElement.clientWidth/2 && e.target === canvas) {
-    //         console.log(e.touches[0].clientX)
-    //             const col = tetromino.col - 1;
-    //     if (isValidMove(tetromino.matrix, tetromino.row, col)) {
-    //         tetromino.col = col;
-    //     }
+    // const firstTouch = getTouches(e)[0];                                      
+    // xDown = firstTouch.clientX;                                      
+    // yDown = firstTouch.clientY; 
+    //     console.log(yDown)
+    //           console.log(xDown)
+        if (e.touches.length === 2 && e.target === canvas) {
+            const matrix = rotate(tetromino.matrix);
+        if (isValidMove(matrix, tetromino.row, tetromino.col)) {
+            tetromino.matrix = matrix;
+            }
+        }
+    else if (e.touches[0].clientX < document.documentElement.clientWidth/2 && e.target === canvas) {
+            console.log(e.touches[0].clientX)
+                const col = tetromino.col - 1;
+        if (isValidMove(tetromino.matrix, tetromino.row, col)) {
+            tetromino.col = col;
+        }
             
-    //     }
+        }
 
-    //   else   if (e.touches[0].clientX > document.documentElement.clientWidth/2 && e.target === canvas) {
-    //         console.log(e.touches[0].clientX)
-    //             const col = tetromino.col + 1;
-    //     if (isValidMove(tetromino.matrix, tetromino.row, col)) {
-    //         tetromino.col = col;
-    //     }
+      else   if (e.touches[0].clientX > document.documentElement.clientWidth/2 && e.target === canvas) {
+            console.log(e.touches[0].clientX)
+                const col = tetromino.col + 1;
+        if (isValidMove(tetromino.matrix, tetromino.row, col)) {
+            tetromino.col = col;
+        }
             
-    //     }
+        }
      
     })
 
     document.addEventListener('touchmove', function (evt) {
         
-    if ( ! xDown || ! yDown ) {
-        return;
-    }
+    // if ( ! xDown || ! yDown ) {
+    //     return;
+    // }
 
-    let xUp = evt.touches[0].clientX;                                    
-    let yUp = evt.touches[0].clientY;
+    // let xUp = evt.touches[0].clientX;                                    
+    // let yUp = evt.touches[0].clientY;
 
-    let xDiff = xDown - xUp;
-    let yDiff = yDown - yUp;
+    // let xDiff = xDown - xUp;
+    // let yDiff = yDown - yUp;
                                                                          
-    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
-        if (xDiff > 0) {
-            console.log('left swipe')
-             const col = tetromino.col - 1;
-        if (isValidMove(tetromino.matrix, tetromino.row, col)) {
-            tetromino.col = col;
-        }
-            /* right swipe */ 
-        } else {
-            console.log('right swipe')
-             const col = tetromino.col + 1;
-        if (isValidMove(tetromino.matrix, tetromino.row, col)) {
-            tetromino.col = col;
-        }
-            /* left swipe */
-        }                       
-    } else {
-        if (yDiff > 0) {
-            console.log('up swipe')
-                        const matrix = rotate(tetromino.matrix);
-        if (isValidMove(matrix, tetromino.row, tetromino.col)) {
-            tetromino.matrix = matrix;
-            }
-            /* down swipe */ 
-        } else { 
-                 console.log('down swipe')
-            /* up swipe */
-               const row = tetromino.row + 1;
-        if (!isValidMove(tetromino.matrix, row, tetromino.col)) {
-            tetromino.row = row - 1;
-            placeTetromino();
-            return
-        }
-        tetromino.row = row;
-        }                                                                 
+    // if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+    //     if (xDiff > 0) {
+    //         console.log('left swipe')
+    //          const col = tetromino.col - 1;
+    //     if (isValidMove(tetromino.matrix, tetromino.row, col)) {
+    //         tetromino.col = col;
+    //     }
+    //         /* right swipe */ 
+    //     } else {
+    //         console.log('right swipe')
+    //          const col = tetromino.col + 1;
+    //     if (isValidMove(tetromino.matrix, tetromino.row, col)) {
+    //         tetromino.col = col;
+    //     }
+    //         /* left swipe */
+    //     }                       
+    // } else {
+    //     if (yDiff > 0) {
+    //         console.log('up swipe')
+    //                     const matrix = rotate(tetromino.matrix);
+    //     if (isValidMove(matrix, tetromino.row, tetromino.col)) {
+    //         tetromino.matrix = matrix;
+    //         }
+    //         /* down swipe */ 
+    //     } else { 
+    //              console.log('down swipe')
+    //         /* up swipe */
+    //            const row = tetromino.row + 1;
+    //     if (!isValidMove(tetromino.matrix, row, tetromino.col)) {
+    //         tetromino.row = row - 1;
+    //         placeTetromino();
+    //         return
+    //     }
+    //     tetromino.row = row;
+    //     }                                                                 
+    // }
+    // /* reset values */
+    // xDown = null;
+    // yDown = null;  
     }
-    /* reset values */
-    xDown = null;
-    yDown = null;  
-    })
+    )
 }
     
 
