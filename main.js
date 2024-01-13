@@ -361,7 +361,7 @@ document.addEventListener('keydown', function(e) {
 // } 
 
 
-if (document.documentElement.clientWidth < 768) {
+if (document.documentElement.clientWidth < 1200) {
 
     document.addEventListener('touchstart', function (e) {
 
@@ -396,7 +396,7 @@ if (document.documentElement.clientWidth < 768) {
      
     })
 
-    document.addEventListener('touchmove', function (evt) {
+    // document.addEventListener('touchmove', function (evt) {
         
     // if ( ! xDown || ! yDown ) {
     //     return;
@@ -447,8 +447,8 @@ if (document.documentElement.clientWidth < 768) {
     // /* reset values */
     // xDown = null;
     // yDown = null;  
-    }
-    )
+    // }
+    // )
 }
     
 
