@@ -15,7 +15,7 @@ body {
 
 .wrapper {
     margin-top: 12px;
-
+    position: fixed;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -114,6 +114,7 @@ canvas {
     .wrapper {
         height: 100%;
         display: flex;
+        position: fixed;
         flex-direction: column;
         /* gap: 12px; */
         align-items: center;
@@ -206,11 +207,15 @@ canvas {
 @media screen and (min-width: 767px) {
 
     body {
-        position: relative;
+
         display: flex;
         align-items: center;
         justify-content: center;
         background: linear-gradient(to right, rgb(18, 174, 241), rgb(13, 131, 182), rgb(7, 65, 90));
+    }
+
+    .wrapper {
+        position: fixed;
     }
 
 
@@ -300,6 +305,7 @@ canvas {
     .wrapper {
         margin-top: 24px;
         width: 100%;
+        position: fixed;
         display: flex;
         flex-direction: column;
         gap: 20px;
