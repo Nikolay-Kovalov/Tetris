@@ -362,6 +362,7 @@ document.addEventListener('keydown', function(e) {
 
 
 if (document.documentElement.clientWidth < 768) {
+
     document.addEventListener('touchstart', function (e) {
 
     // const firstTouch = getTouches(e)[0];                                      
@@ -450,6 +451,8 @@ if (document.documentElement.clientWidth < 768) {
     )
 }
     
+
+console.log(navigator.userAgent)
 
 
 
