@@ -1,10 +1,8 @@
-// const text = document.querySelector('#score');
+
 const startBtn = document.getElementById('start');
 const stopBtn = document.getElementById('stop');
 const reloadBtn = document.getElementById('reload');
 const downBtn = document.getElementById('arrow-down');
-// const looseInfo = document.getElementById('loose');
-// const winInfo = document.getElementById('win');
 
 const canvas = document.getElementById('game');
 const context = canvas.getContext('2d');
@@ -26,13 +24,8 @@ function loadFromLS(key) {
 }
 
 let loose = loadFromLS('loose') === undefined ? 0 : loadFromLS('loose');
-console.log(loose)
-
-// looseInfo.innerText = loose;
 
 let win = loadFromLS('win') === undefined ? 0 : loadFromLS('win');
-
-// winInfo.innerText = win;
 
 let count = 0;
 
@@ -57,10 +50,10 @@ reloadBtn.addEventListener('click', onReloadBtnClick)
 function onReloadBtnClick() {
     if (!gameOver && score !== 0) {
         win += 1;
-        // winInfo.innerText = win;
+
         localStorage.setItem('win', JSON.stringify(win))
          cancelAnimationFrame(rAF);
-    // gameOver = true;
+
 context.clearRect(0, 0, canvas.width, canvas.height);
 context.fillStyle = "transparent";
 context.fillRect(0, 0, canvas.width, 60);
@@ -126,7 +119,6 @@ function generateSequence() {
         const name = sequance.splice(rand, 1)[0];
         tetrominoSequance.push(name);
     }
-    console.log(tetrominoSequance)
 }
 
 function getNextTetromino() {
@@ -137,12 +129,6 @@ function getNextTetromino() {
     const matrix = tetrominos[name];
     const col = playfield[0].length / 2 - Math.ceil(matrix[0].length / 2)
     const row = name === "I" ? -1 : -2;
-    console.log({
-        name: name,
-        matrix: matrix,
-        row: row,
-        col: col,
-    })
     return {
         name: name,
         matrix: matrix,
@@ -186,7 +172,6 @@ function placeTetromino() {
               
         if (playfield[row].every((cell) => !!cell)) {
             score += 1
-            // text.innerText = score;
             for (let r = row; r >= 0; r--) {
            
                 for (let c = 0; c < playfield[r].length; c++) {
@@ -227,7 +212,7 @@ function showGameOver() {
     } else {
           localStorage.setItem('loose', JSON.stringify(1));
     }
-    // looseInfo.innerText = loose;
+
    
 }
 
@@ -235,7 +220,6 @@ function showGameOver() {
 
 for (let row = -2; row < 20; row++){
     playfield[row] = [];
-    console.log(playfield)
     for (let col = 0; col < 10; col++){
         playfield[row][col] = 0;
 
@@ -352,16 +336,6 @@ document.addEventListener('keydown', function(e) {
     }
 })  
 
-
-// let xDown = null;                                                        
-// let yDown = null;
-
-// function getTouches(evt) {
-//   return evt.touches ||             // browser API
-//          evt.originalEvent.touches; // jQuery
-// } 
-
-
 if (document.documentElement.clientWidth < 1200) {
 
     document.addEventListener('click', onDownArrowClick);
@@ -377,12 +351,6 @@ if (document.documentElement.clientWidth < 1200) {
     }
 
     document.addEventListener('touchstart', function (e) {
-
-    // const firstTouch = getTouches(e)[0];                                      
-    // xDown = firstTouch.clientX;
-    // yDown = firstTouch.clientY;
-    //     console.log(yDown)
-    //           console.log(xDown)
    
         if (e.touches.length === 2 && e.target === canvas) {
             const matrix = rotate(tetromino.matrix);
@@ -409,68 +377,14 @@ if (document.documentElement.clientWidth < 1200) {
         }
      
     })
-
-    // document.addEventListener('touchmove', function (evt) {
-        
-    // if ( ! xDown || ! yDown ) {
-    //     return;
-    // }
-
-    // let xUp = evt.touches[0].clientX;                                    
-    // let yUp = evt.touches[0].clientY;
-
-    // let xDiff = xDown - xUp;
-    // let yDiff = yDown - yUp;
-                                                                         
-    // if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
-    //     if (xDiff > 0) {
-    //         console.log('left swipe')
-    //          const col = tetromino.col - 1;
-    //     if (isValidMove(tetromino.matrix, tetromino.row, col)) {
-    //         tetromino.col = col;
-    //     }
-    //         /* right swipe */ 
-    //     } else {
-    //         console.log('right swipe')
-    //          const col = tetromino.col + 1;
-    //     if (isValidMove(tetromino.matrix, tetromino.row, col)) {
-    //         tetromino.col = col;
-    //     }
-    //         /* left swipe */
-    //     }                       
-    // } else {
-    //     if (yDiff > 0) {
-    //         console.log('up swipe')
-    //                     const matrix = rotate(tetromino.matrix);
-    //     if (isValidMove(matrix, tetromino.row, tetromino.col)) {
-    //         tetromino.matrix = matrix;
-    //         }
-    //         /* down swipe */ 
-    //     } else { 
-    //              console.log('down swipe')
-    //         /* up swipe */
-    //            const row = tetromino.row + 1;
-    //     if (!isValidMove(tetromino.matrix, row, tetromino.col)) {
-    //         tetromino.row = row - 1;
-    //         placeTetromino();
-    //         return
-    //     }
-    //     tetromino.row = row;
-    //     }                                                                 
-    // }
-    // /* reset values */
-    // xDown = null;
-    // yDown = null;  
-    // }
-    // )
 }
     
 
-console.log(navigator.userAgent)
 
 
 
-//  rAF = requestAnimationFrame(loop);
+
+
 
 
 
