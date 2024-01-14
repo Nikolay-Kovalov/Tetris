@@ -2,6 +2,7 @@
 const startBtn = document.getElementById('start');
 const stopBtn = document.getElementById('stop');
 const reloadBtn = document.getElementById('reload');
+const downBtn = document.getElementById('arrow-down');
 // const looseInfo = document.getElementById('loose');
 // const winInfo = document.getElementById('win');
 
@@ -363,13 +364,26 @@ document.addEventListener('keydown', function(e) {
 
 if (document.documentElement.clientWidth < 1200) {
 
+    document.addEventListener('click', onDownArrowClick);
+
+    function onDownArrowClick() {
+        const row = tetromino.row + 1;
+        if (!isValidMove(tetromino.matrix, row, tetromino.col)) {
+            tetromino.row = row - 1;
+            placeTetromino();
+            return
+        }
+        tetromino.row = row; 
+    }
+
     document.addEventListener('touchstart', function (e) {
 
     // const firstTouch = getTouches(e)[0];                                      
-    // xDown = firstTouch.clientX;                                      
-    // yDown = firstTouch.clientY; 
+    // xDown = firstTouch.clientX;
+    // yDown = firstTouch.clientY;
     //     console.log(yDown)
     //           console.log(xDown)
+   
         if (e.touches.length === 2 && e.target === canvas) {
             const matrix = rotate(tetromino.matrix);
         if (isValidMove(matrix, tetromino.row, tetromino.col)) {

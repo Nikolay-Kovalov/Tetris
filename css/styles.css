@@ -87,10 +87,20 @@ body {
     bottom: 30px; */
 }
 
+#arrow-down {
+    width: 50px;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(208, 2, 201);
+    color: white;
+    font-size: 24px;
+}
+
 .buttons-wrapper {
-    margin-top: 8px;
+    width: 100%;
     display: flex;
-    gap: 24px;
+    justify-content: space-between;
 
 }
 
@@ -184,7 +194,10 @@ canvas {
         bottom: 30px; */
     }
 
+
+
     .buttons-wrapper {
+        width: 100%;
         display: flex;
         justify-content: space-between;
 
@@ -282,8 +295,9 @@ canvas {
     }
 
     .buttons-wrapper {
+        width: 100%;
         display: flex;
-        gap: 24px;
+        justify-content: space-between;
 
     }
 
@@ -314,8 +328,9 @@ canvas {
     }
 
     .buttons-wrapper {
+        width: 320px;
         display: flex;
-        gap: 16px;
+        justify-content: space-between;
     }
 
     #start {
@@ -355,6 +370,10 @@ canvas {
         color: white;
         font-size: 14px;
 
+    }
+
+    #arrow-down {
+        display: none;
     }
 
     canvas {
